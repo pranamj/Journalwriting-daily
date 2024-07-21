@@ -16,6 +16,11 @@ export default function Home() {
     }
   };
 
+  const autoResize = (textarea) => {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  };
+
   const handleInputChange = (e) => {
     if (startTime === 0) {
       setStartTime(Date.now());
@@ -26,6 +31,7 @@ export default function Home() {
     const wpm = Math.round(wordsCount / timeDiff);
     setWordsPerMinute(wpm);
     setEntry(e.target.value);
+    autoResize(e.target);
   };
 
   const saveEntry = async () => {
@@ -58,6 +64,7 @@ export default function Home() {
             value={entry}
             onChange={handleInputChange}
             placeholder="Write your journal entry here..."
+            style={{ overflow: 'hidden', resize: 'none' }}
           />
           <p>Words per minute: {wordsPerMinute}</p>
           <button onClick={saveEntry}>Save Entry</button>

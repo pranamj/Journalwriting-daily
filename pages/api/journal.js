@@ -5,6 +5,8 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { prompt, entry, wordsPerMinute } = req.body;
 
+     console.log(req.body)
+
     try {
       const client = await pool.connect();
       const result = await client.query(
