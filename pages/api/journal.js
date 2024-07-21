@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   } else if (req.method === 'GET') {
     try {
       const response = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=${process.env.API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta3/models/text-bison-001:generateText?key=AIzaSyDXLHv3rOBCtwMD7V3Ft4lv-z8rAIt3bs4`,
         {
           prompt: { text: "I want to write a journal like Marcus Aurelius or Viktor Frankl. Give me a prompt for life, wealth creation, or something else. I just need one question at a time to journal from." },
         },
