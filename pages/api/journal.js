@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       res.status(200).json(result.rows[0]);
     } catch (error) {
       console.error('Error inserting data:', error);
-      res.status(500).json({ error: 'Error inserting data' });
+      res.status(500).json({ error: 'Error inserting data' + error.message});
     }
   } else if (req.method === 'GET') {
     try {
